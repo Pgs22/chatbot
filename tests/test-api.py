@@ -4,10 +4,12 @@
 from gradio_client import Client
 
 client = Client("Patriciagsbcn/practica-chat")
+
 result = client.predict(
 	"Where is the hospital located!!",
 	5,
 	0.55,
 	api_name="/ask"
 )
-print(result)
+print("\n--- RESPUESTA ---")
+print(result[1])
