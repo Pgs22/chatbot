@@ -26,11 +26,11 @@ with gr.Blocks(title="Chatbot RAG") as demo:
     respuesta = gr.Textbox(label="Respuesta", lines=3)
     documentos = gr.Textbox(label="Documentos recuperados", lines=6, max_lines=15)
 
-    boton.click(
-        fn=ask,
-        inputs=[query, top_k, umbral],
-        outputs=[respuesta, documentos],
-        api_name="ask"
-    )
+boton.click(
+    fn=ask,
+    inputs=[query, top_k, umbral],
+    outputs=[respuesta, documentos],
+    api_name="ask"
+)
 
 demo.launch()
