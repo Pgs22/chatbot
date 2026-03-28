@@ -30,7 +30,7 @@ with gr.Blocks(title="Chatbot RAG") as demo:
         fn=ask,
         inputs=[query, top_k, umbral],
         outputs=[respuesta, documentos],
-        api_name="/ask"
+        api_name="ask"
     )
 
 demo.launch()

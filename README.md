@@ -48,3 +48,57 @@ pip install -r requirements.txt
 ```bash
 python app.py
 ```
+
+## Instrucciones Space Hugging Face con Gradio
+
+# When prompted for a password, use an access token with write permissions.
+# Generate one from your settings: https://huggingface.co/settings/tokens
+```bash
+git clone https://huggingface.co/spaces/Patriciagsbcn/practica-chat
+```
+
+# Make sure the hf CLI is installed
+```bash
+powershell -ExecutionPolicy ByPass -c "irm https://hf.co/cli/install.ps1 | iex"
+```
+
+# Download the Space
+```bash
+hf download Patriciagsbcn/practica-chat --repo-type=space
+```
+
+# Create your gradio app.py file:
+import gradio as gr
+
+def greet(name):
+    return "Hello " + name + "!!"
+
+demo = gr.Interface(fn=greet, inputs="text", outputs="text")
+demo.launch()
+
+# Then commit and push:
+```bash
+git add app.py && git commit -m 'Add application file' && git push
+```
+
+## Dependencies
+You can add a requirements.txt file at the root of the repository to specify Python dependencies
+If needed, you can also add a packages.txt file at the root of the repository to specify Debian dependencies.
+The gradio package is pre-installed and its version is set in the sdk_version field in the README.md file.
+Personalize your Space
+Make your Space stand out by customizing its emoji, colors, and description by editing metadata in its README.md file.
+Documentation
+Read the full documentation for gradio Spaces here --> https://www.gradio.app/docs
+
+### Readme
+https://huggingface.co/docs/hub/spaces-config-reference
+title: Practica Chat
+emoji: 📉
+colorFrom: pink
+colorTo: yellow
+sdk: gradio
+sdk_version: 6.10.0
+app_file: app.py
+pinned: false
+short_description: ChatBot
+Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
